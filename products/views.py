@@ -58,6 +58,31 @@ class DrinkView(View):
 
     return JsonResponse({'result': 'SUCCESS'}, status=200)
 
+class AllDrinkView(View):
+  def get(self, request):
+    data = json.loads(request.body)
+
+    category = Category.objects.get(name=data['name'])
+    drinks = category.drink_set.all()
+    print(drinks)
+    result = []
+    
+    for drink in drinks:
+      my_dict = {
+        'korean_name' : drink.korean_name,
+        'english_name': drink.english_name,
+        'description': drink.description,
+      }
+      result.append(my_dict)
+    
+    return JsonResponse({'result': result}, status=200)
+
+
+
+  
+
+
+
 
 # class CategoryView(View):
 #   def get(self,request):
@@ -101,4 +126,5 @@ class DrinkView(View):
 
 #     return JsonResponse({'message' : 'SUCC'}, status=200)
     
+
 
