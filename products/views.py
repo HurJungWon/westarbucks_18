@@ -71,7 +71,7 @@ class AllDrinkView(View):
       my_dict = {
         'korean_name' : drink.korean_name,
         'english_name': drink.english_name,
-        'description': drink.description,
+        'description' : drink.description,
       }
       result.append(my_dict)
     
@@ -81,20 +81,6 @@ class AllDrinkView(View):
 
   
 
-
-
-
-# class CategoryView(View):
-#   def get(self,request):
-#     data = json.loads(request.body)
-#     category = Category.objects.get(name=data['name'])
-#     result = []
-#     my_dict = {
-#       'name'   : category.name,
-#       'menu_id': category.menu,
-#     }
-#     result.append(my_dict)
-#     return JsonResponse({'result' : result}, status=200)
 
 
 
