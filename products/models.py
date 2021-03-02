@@ -15,8 +15,8 @@ class Category(models.Model):
     db_table = 'categories'
 
 class Drink(models.Model):
-  korean_name  = models.CharField(max_length=45)
-  english_name = models.CharField(max_length=45)
+  korean_name  = models.CharField(max_length=100)
+  english_name = models.CharField(max_length=100)
   description  = models.TextField()
   category     = models.ForeignKey(Category, on_delete=models.CASCADE)
 
